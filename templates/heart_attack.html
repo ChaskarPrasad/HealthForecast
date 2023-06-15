@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Heart Attack
+{% endblock %}
+{% block style %}
+  body { font-family: 'Lato', sans-serif;font-size:larger}
+
+  h1 { margin-bottom: 40px; }
+
+  label { color: #333; }
+
+  .btn-send { font-weight: 300; text-transform: uppercase; letter-spacing: 0.2em; width: 80%; margin-left: 3px; } .help-block.with-errors { color: #ff5050; margin-top: 5px;
+
+  }
+
+  .card{ margin-left: 10px; margin-right: 10px; }
+{% endblock %}
+{% block body %}
+  <section class="section-padding" id="booking">
+    <div class="container">
+      <div class="text-center mt-5">
+        <h1>Heart Attack Prediction</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-7 mx-auto">
+          <div class="card mt-2 mx-auto p-4 bg-light">
+            <div class="card-body bg-light">
+              <div class="container">
+                <form id="contact-form" role="form" method="post"> {% csrf_token %}
+                  <div class="controls">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_gender">Gender *</label>
+                          <input id="form_gender" type="text" name="gender" class="form-control" placeholder="Enter your gender" required="required" data-error="Gender is required." />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_age">Age *</label>
+                          <input id="form_age" type="number" name="age" class="form-control" placeholder="Enter your age" required="required" data-error="Age is required." />
+                        </div>
+                      </div>
+                    </div><br/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="form_exang">Exercise induced angina *</label>
+                              <select id="form_exang" name="exang" class="form-control" required="required" data-error="Please specify your need.">
+                                <option value="" selected disabled>--Select--</option>
+                                <option>Yes</option>
+                                <option>No</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="form_cp">Chest Pain *</label>
+                              <select id="form_cp" name="cp" class="form-control" required="required" data-error="Please specify your need.">
+                                <option value="" selected disabled>--Select--</option>
+                                <option>typical angina</option>
+                                <option>atypical angina</option>
+                                <option>non-anginal pain</option>
+                                <option>asymptomatic</option>
+                              </select>
+                            </div>
+                        </div>
+                    </div> <br/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="form_bp">Blood Pressure *</label>
+                              <input id="form_bp" type="number" name="bp" class="form-control" placeholder="Enter your BP" required="required" data-error="BP is required." />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="form_chol">Cholesterol  *</label>
+                              <input id="form_chol" type="number" name="chol" class="form-control" placeholder="Enter your Cholesterol" required="required" data-error="Chol is required." />
+                            </div>
+                        </div>
+                    </div> <br/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="form_rest_ecg">Resting electrocardiographic results *</label>
+                              <select id="form_rest_ecg" name="rest_ecg" class="form-control" required="required" data-error="Please specify your need.">
+                                <option value="" selected disabled>--Select--</option>
+                                <option>Normal</option>
+                                <option>Having ST-T wave abnormality</option>
+                                <option>showing probable or definite left ventricular hypertrophy by Estes' criteria</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="form_hr">Heart Rate *</label>
+                            <input id="form_hr" type="number" name="thalach" class="form-control" placeholder="Enter your maximum heart-rate" required="required" data-error="blood_glucose_level is required." />
+                          </div>
+                        </div>
+                      </div><br/>
+                      <div class="col-lg-3 col-md-4 col-6 mx-auto">
+                        <button type="submit" class="form-control" id="submit-button">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- /.8 -->
+        </div>
+        <!-- /.row -->
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  HealthForecast
+{% endblock %}
+{% block style %}
+  body { font-family: 'Lato', sans-serif;font-size:larger}
+
+  h1 { margin-bottom: 40px; }
+
+  label { color: #333; }
+
+  .btn-send { font-weight: 300; text-transform: uppercase; letter-spacing: 0.2em; width: 80%; margin-left: 3px; } .help-block.with-errors { color: #ff5050; margin-top: 5px;
+
+  }
+
+  .card{ margin-left: 10px; margin-right: 10px; }
+{% endblock %}
+{% block body %}
+  <section class="section-padding" id="booking">
+    <div class="container">
+      <div class="text-center mt-5">
+        <h1>Diabetes Prediction</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-7 mx-auto">
+          <div class="card mt-2 mx-auto p-4 bg-light">
+            <div class="card-body bg-light">
+              <div class="container">
+                <form id="contact-form" role="form" method="post"> {% csrf_token %}
+                  <div class="controls">
+                    <div class="row">
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_gender">Gender *</label>
+                          <select id="form_gender" name="gender" class="form-control" required="required" data-error="Please specify your need.">
+                            <option value="" selected disabled>--Select--</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                          </select>
+                        </div>
+                    </div>
+
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_age">Age *</label>
+                          <input id="form_age" type="number" name="age" class="form-control" placeholder="Enter your age" required="required" data-error="Age is required." />
+                        </div>
+                      </div>
+                    </div><br/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="form_hp">Hypertension *</label>
+                              <select id="form_hp" name="hypertension" class="form-control" required="required" data-error="Please specify your need.">
+                                <option value="" selected disabled>--Select--</option>
+                                <option>Yes</option>
+                                <option>No</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="form_hd">Heart Disease *</label>
+                              <select id="form_hd" name="heart_disease" class="form-control" required="required" data-error="Please specify your need.">
+                                <option value="" selected disabled>--Select--</option>
+                                <option>Yes</option>
+                                <option>No</option>
+                              </select>
+                            </div>
+                        </div>
+                    </div> <br/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="form_sh">Smoking History *</label>
+                              <select id="form_sh" name="smoking_history" class="form-control" required="required" data-error="Please specify your need.">
+                                <option value="" selected disabled>--Select--</option>
+                                <option>Never</option>
+                                <option>Former</option>
+                                <option>Current</option>
+                                <option>Not Current</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="form_bmi">BMI *</label>
+                              <input id="form_bmi" type="number" name="bmi" class="form-control" placeholder="Enter your BMI" required="required" data-error="BMI is required." />
+                            </div>
+                          </div>
+                    </div> <br/>
+                    <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="form_hb">HbA1c_level *</label>
+                            <input id="form_hb" type="number" name="HbA1c_level" class="form-control" placeholder="Enter your HbA1c_level" required="required" data-error="HbA1c_level is required." />
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="form_glucose">Blood Glcuose Level *</label>
+                            <input id="form_glucose" type="number" name="blood_glucose_level" class="form-control" placeholder="Enter your Blood Glcuose Level" required="required" data-error="blood_glucose_level is required." />
+                          </div>
+                        </div>
+                      </div><br/>
+                      <div class="col-lg-3 col-md-4 col-6 mx-auto">
+                        <button type="submit" class="form-control" id="submit-button">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- /.8 -->
+        </div>
+        <!-- /.row -->
+      </div>
+    </div>
+  </section>
+{% endblock %}
